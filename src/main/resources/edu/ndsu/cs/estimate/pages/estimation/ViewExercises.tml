@@ -1,0 +1,25 @@
+<html t:type="layout" title="View Exercises" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+    xmlns:p="tapestry:parameter">
+
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:80%; margin:20px 0 20px 0">
+        <div class="card-body">
+            <h1 class="card-title" style="color:rgb(23, 23, 23)">Exercises</h1>
+            <h3 class="card-subtitle text-muted" style="margin-top:5px; margin-bottom:3px">${category()}</h3>
+            <t:grid class="table table-bordered table-striped" style="background-color: white;" source="exercises"
+                row="exercise" include="name, description" add="actions">
+                <p:actionsCell>
+                    <t:pagelink class="btn btn-secondary" page="estimation/CreateEstimate" context="exercise.pk">Predict
+                        Outcome</t:pagelink>
+                    <t:security.hasRole role="admin">
+                        <t:pagelink style="margin-left:10px" class="btn btn-secondary" page="estimation/ReportOutcome"
+                            context="exercise.pk">Report Outcome</t:pagelink>
+                    </t:security.hasRole>
+                </p:actionsCell>
+            </t:grid>
+        </div>
+    </div>
+</div>
+
+</html>

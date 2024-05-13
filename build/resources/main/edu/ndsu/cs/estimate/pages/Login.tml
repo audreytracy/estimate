@@ -1,0 +1,17 @@
+<html t:type="layout" title="Index | assignment4" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<div class="row hero-unit">
+
+    <h1>${message:greeting}</h1>
+
+    <t:security.notauthenticated>
+        <p>You are currently not logged in. Click the Log In button on the far right side of the menu
+            to log in. Afterwards, you should be redirected back to this page.</p>
+    </t:security.notauthenticated>
+
+    <t:security.authenticated>
+        <p>Greetings you are logged in</p>
+    </t:security.authenticated>
+</div>
+
+</html>

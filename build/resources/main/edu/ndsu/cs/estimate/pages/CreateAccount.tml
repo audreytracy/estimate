@@ -1,0 +1,26 @@
+<html t:type="layout" title="Create Account" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<head>
+    <title>Login Form</title>
+</head>
+
+<body>
+
+
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="card" style="width:50%; margin:20px 0 20px 0; padding:20px; padding-right:23px">
+            <h2 class="card-title" style="color:rgb(23, 23, 23)"> Create Account </h2>
+            <t:form t:id="createAccountForm">
+                <t:errors />
+                <t:label for="userName" />
+                <t:textField t:id="userName" value="userName" />
+                <t:label for="password" />
+                <t:passwordfield style="margin-bottom:10px" t:id="password" value="passWord" />
+                <t:submit class="btn btn-success" value="Create Account" />
+                <t:pagelink page="index" class="btn btn-danger" style="margin-left:10px">Cancel</t:pagelink>
+            </t:form>
+        </div>
+    </div>
+</body>
+
+</html>

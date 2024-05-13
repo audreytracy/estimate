@@ -1,0 +1,28 @@
+<html t:type="layout" title="Create New Task" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+    xmlns:p="tapestry:parameter">
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:50%; margin:20px 0 20px 0; padding:20px; padding-right:23px">
+
+        <h2 class="card-title" style="color:rgb(23, 23, 23)"> Add Task </h2>
+
+        <t:form t:id="taskForm">
+            <t:errors />
+            <t:label for="name" />
+            <t:textField t:id="name" value="task.name" placeholder="task name" />
+            <t:label for="startDate" />
+            <t:datefield t:id="startDate" value="task.startDate" />
+            <t:label for="estEndDate" />
+            <t:datefield t:id="estEndDate" value="task.estEndDate" />
+            <t:label for="timeTakenSoFar" />
+            <t:textField type="number" t:id="timeTakenSoFar" value="task.timeTaken" min="0" placeholder="hours" />
+            <t:label for="estimatedHours" />
+            <t:textField type="number" t:id="estimatedHours" value="task.estimatedHours" min="0" placeholder="hours" />
+            <br />
+            <t:submit class="btn btn-success" value="Create new Task" />
+            <t:pagelink page="tasks" class="btn btn-danger" style="margin-left:10px">Cancel</t:pagelink>
+        </t:form>
+    </div>
+</div>
+
+</html>

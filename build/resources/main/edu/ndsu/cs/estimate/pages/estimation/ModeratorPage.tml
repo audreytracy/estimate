@@ -1,0 +1,17 @@
+<html t:type="layout" title="Estimation | eftimateBase" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+    xmlns:p="tapestry:parameter">
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:80%; margin:20px 0 20px 0">
+        <div class="card-body">
+            <h1 class="card-title" style="color:rgb(23, 23, 23)">Exercise Suggestions</h1>
+            <t:grid source="suggestions" row="suggestion" include="name, description" add="actions">
+                <p:actionsCell>
+                    <t:eventlink class="btn btn-secondary" event="approve" context="suggestion.pk">Approve</t:eventlink>
+                    <t:eventlink style="margin-left:10px" class="btn btn-secondary" event="deny" context="suggestion.pk">Deny</t:eventlink>
+                </p:actionsCell>
+            </t:grid>
+        </div>
+    </div>
+</div>
+</html>

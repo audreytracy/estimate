@@ -1,0 +1,155 @@
+<html t:type="layout" title="View Report" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<div class="d-flex align-items-center justify-content-center">
+    <t:if test="report">
+        <div class="card" style="width:80%; margin:20px 0 20px 0">
+            <div class="card-body">
+                <h1 class="card-title" style="color:rgb(23, 23, 23)">${formatDate(report.getDateGenerated())} Estimation Report</h1>
+                <t:if test="isOver1(report.getPredictionMultiplier())">
+                    <h2 class="card-subtitle text-muted" style="margin-top:5px;">Avg. actual-to-prediction ratio:
+                        <span style="color: red"> ${report.getPredictionMultiplier()}</span>
+                    </h2>
+                </t:if>
+                <t:unless test="isOver1(report.getPredictionMultiplier())">
+                    <h2 class="card-subtitle text-muted" style="margin-top:5px;">Avg. actual-to-prediction ratio:
+                        <span style="color:green"> ${report.getPredictionMultiplier()}</span>
+                    </h2>
+                </t:unless>
+
+                <t:if test="!getCompletedTaskList().isEmpty()">
+                    <h2 class="card-subtitle" style="margin-top:5px; color:rgb(23, 23, 23)">Tasks completed since last
+                        report: </h2>
+                    <table class="table table-bordered table-striped" t:type="loop" t:source="getCompletedTaskList()"
+                        t:value="task">
+                        <tbody style="background-color:white">
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;"><b>Task name</b></td>
+                                <td style="width: 50%; padding: 1rem;">${task.getName()}</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Started</td>
+                                <td style="width: 50%; padding: 1rem;">${formatDate(task.getStartDate())}</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Time Taken</td>
+                                <td style="width: 50%; padding: 1rem;">${getHours(task)} hours</td>
+                            </tr>
+                            <t:if test="!getTHL(task).isEmpty()">
+                                <tr style="border: 1px solid black;">
+                                    <td style="width: 50%; padding: 1rem;">Hour Log History</td>
+                                    <td style="width: 50%; padding: 1rem;">
+                                        <table style="padding: 1rem; width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 50%;">Timestamp</th>
+                                                    <th style="width: 50%;">Hours</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody t:type="loop" t:source="getTHL(task)" t:value="log">
+                                                <tr>
+                                                    <td style="width: 50%;">${log.getPrettyTimestamp()}</td>
+                                                    <td style="width: 50%;">${log.getHours()}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </t:if>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Analysis</td>
+                                <td style="width: 50%; padding: 1rem;">${getAnalysis(task)}</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Ratio actual to predicted</td>
+                                <t:if test="isOver1(getRatio(task))">
+                                    <td style="width: 50%; padding: 1rem; background-color:rgb(240, 191, 191)">${getRatio(task)}</td>
+                                </t:if>
+                                <t:unless test="isOver1(getRatio(task))">
+                                    <td style="width: 50%; padding: 1rem; background-color:rgb(184, 231, 184)">${getRatio(task)}</td>
+                                </t:unless>
+
+
+
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+                </t:if>
+
+                <t:unless test="!getCompletedTaskList().isEmpty()">
+                    <h2 class="card-subtitle text-muted" style="margin-top:5px">No tasks completed since last report.
+                    </h2>
+                </t:unless>
+                <t:if test="!getInProgressTaskList().isEmpty()">
+                    <h2 class="card-subtitle" style="margin-top:5px; color:rgb(23, 23, 23)">Tasks in progress:</h2>
+                    <table class="table table-bordered table-striped" t:type="loop" t:source="getInProgressTaskList()"
+                        t:value="task" style="width: 100%; border-collapse: collapse;">
+                        <tbody>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;"><b>Task name</b></td>
+                                <td style="width: 50%; padding: 1rem;">${task.getName()}</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Started</td>
+                                <td style="width: 50%; padding: 1rem;">${formatDate(task.getStartDate())}</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Time Taken</td>
+                                <td style="width: 50%; padding: 1rem;">${getHours(task)} hours</td>
+                            </tr>
+                            <t:if test="!getTHL(task).isEmpty()">
+                                <tr style="border: 1px solid black;">
+                                    <td style="width: 50%; padding: 1rem;">Hour Log History</td>
+                                    <td style="width: 50%; padding: 1rem;">
+                                        <table style="padding: 1rem; width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 50%;">Timestamp</th>
+                                                    <th style="width: 50%;">Hours</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody t:type="loop" t:source="getTHL(task)" t:value="log">
+                                                <tr>
+                                                    <td style="width: 50%;">${log.getPrettyTimestamp()}</td>
+                                                    <td style="width: 50%;">${log.getHours()}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </t:if>
+                        </tbody>
+                    </table>
+                </t:if>
+                <t:unless test="!getInProgressTaskList().isEmpty()">
+                    <h2 class="card-subtitle text-muted" style="margin-top:5px">No tasks in progress.</h2>
+                </t:unless>
+                <t:if test="!getDroppedTaskList().isEmpty()">
+                    <h2 class="card-subtitle" style="margin-top:5px; color:rgb(23, 23, 23)">Tasks dropped since last
+                        report:</h2>
+                    <table class="table table-bordered table-striped" t:type="loop" t:source="getDroppedTaskList()"
+                        t:value="task" style="width: 100%; border-collapse: collapse;">
+                        <tbody>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;"><b>Task name</b></td>
+                                <td style="width: 50%; padding: 1rem;">${task.getName()}</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="width: 50%; padding: 1rem;">Date dropped</td>
+                                <td style="width: 50%; padding: 1rem;">${formatDate(task.getActualEndDate())}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t:if>
+                <t:unless test="!getDroppedTaskList().isEmpty()">
+                    <h2 class="card-subtitle text-muted" style="margin-top:5px">No tasks dropped since last report.</h2>
+                </t:unless>
+            </div>
+        </div>
+    </t:if>
+    <t:if test="!report">
+        <h2>Report does not exist.</h2>
+    </t:if>
+</div>
+
+</html>

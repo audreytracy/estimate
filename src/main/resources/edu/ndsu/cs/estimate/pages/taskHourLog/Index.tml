@@ -1,0 +1,26 @@
+<html t:type="layout" title="Tasks | eftimateBase" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:80%; margin:20px 0 20px 0">
+        <div class="card-body">
+            <h1 class="card-title">Hour Log History</h1>
+            <h2 class="card-subtitle" style="margin-top:5px; color:rgb(23, 23, 23)">${task.getName()}</h2>
+            <table class="table table-bordered table-striped" style="padding:2rem;">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Hours</th>
+                    </tr>
+                </thead>
+                <tbody t:type="loop" t:source="hoursLog" t:value="log">
+                    <tr>
+                        <td>${log.getPrettyTimestamp()}</td>
+                        <td>${log.getHours()}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</html>

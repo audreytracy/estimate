@@ -1,0 +1,110 @@
+<html t:type="layout" title="EstiMate" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<style>
+    .card {
+        z-index: 10;
+        position: relative;
+        top: 28%;
+        left: 70%;
+        color: whitesmoke;
+        background-image: url("https://images.pexels.com/photos/952670/pexels-photo-952670.jpeg");
+        background-size: cover;
+        padding: 1rem 0 0;
+        max-width: 55ch;
+        min-width: 35ch;
+        border-radius: .5rem;
+        overflow: hidden;
+        transition-delay: 200ms;
+        transition: transform 500ms ease;
+        margin-top: 25px;
+        box-shadow: 5px 5px 5px black;
+    }
+
+    .card:hover {
+        transform: scale(1.10);
+    }
+
+    .card:hover .card-content {
+        transform: translateY(0);
+    }
+
+    .card-content {
+        position: relative;
+        padding: 1.5rem;
+        padding-bottom: 4.5rem;
+        background: linear-gradient(hsl(0 0% 0%/0),
+                hsl(0 0% 0%/.4) 20%,
+                hsl(0 0% 0%/.2));
+        transform: translateY(70%);
+        transition: transform 500ms ease;
+        transition-delay: 500ms;
+    }
+
+    .card-body {
+        padding-top: 10px;
+        padding-bottom: 20px;
+        color: rgba(255, 255, 255, .82);
+    }
+
+    .title {
+        position: relative;
+        max-width: 100%;
+        width: max-content;
+        font-size: 27px;
+    }
+
+    .title::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: calc(100% + 1.5rem);
+        left: -1.5rem;
+        bottom: 0;
+        background: hsl(0, 4%, 86%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 500ms ease;
+    }
+
+    .card:hover .title::after {
+        transform: scaleX(1);
+    }
+
+    .hero-content {
+        bottom: 20%;
+    }
+
+    @media (max-width: 776px) {
+        .card {
+            visibility: hidden;
+        }
+    }
+</style>
+
+<div class="row hero-unit">
+    <div class="card" id="pokecard">
+        <div class="card-content">
+            <h1 class="title">Estimate</h1>
+            <p class="card-body">Check out your estimation skills today</p>
+        </div>
+    </div>
+    <div class="position-relative mb-10 hero-content">
+        <div class="col-md-6">
+            <h1 class="text-black display-3 mb-3 font-weight-bold" style="color:rgb(28, 28, 28)">
+                <strong>Estimate</strong>
+            </h1>
+            <p class="text-black lead font-weight-bold" style="color:rgb(28, 28, 28)">
+                Train your brain to better predict outcomes to better estimate
+            </p>
+        </div>
+    </div>
+</div>
+
+<t:block t:id="block">
+    <h2>Ajax updated</h2>
+    <p>I'v been updated through AJAX call</p>
+    <p>The current time is: <strong>${currentTime}</strong></p>
+</t:block>
+
+
+</html>

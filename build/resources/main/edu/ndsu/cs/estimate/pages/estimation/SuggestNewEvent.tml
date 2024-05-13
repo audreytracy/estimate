@@ -1,0 +1,23 @@
+<html t:type="layout" title="Suggest New Event" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+    xmlns:p="tapestry:parameter">
+
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:50%; margin:20px 0 20px 0; padding:20px; padding-right:23px">
+        <h1 class="card-title" style="color:rgb(23, 23, 23)"> Suggest Event </h1>
+        <h3 class="card-subtitle text-muted" style="margin-top:3px; margin-bottom:10px">${category()}</h3>
+
+        <t:form t:id="suggestionForm">
+            <t:errors />
+            <t:label for="name" />
+            <t:textField t:id="name" value="suggestion.name" placeholder="name" />
+            <t:label for="description" />
+            <t:textField t:id="description" value="suggestion.description" placeholder="description" />
+            <br />
+            <t:submit class="btn btn-success" value="Submit Suggestion" />
+            <t:pagelink page="estimation" class="btn btn-danger" style="margin-left:10px">Cancel</t:pagelink>
+        </t:form>
+    </div>
+</div>
+
+</html>

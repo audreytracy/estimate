@@ -1,0 +1,19 @@
+<html t:type="layout" title="Report Outcome" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+    xmlns:p="tapestry:parameter">
+
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:80%; margin:20px 0 20px 0">
+        <div class="card-body">
+            <h1 class="card-title" style="color:rgb(23, 23, 23)">Report Outcome</h1>
+            <t:grid source="exercise" row="exercise" include="name, description" add="actions">
+                <p:actionsCell>
+                    <t:eventlink class="btn btn-secondary" event="eventDidOccur">Did Occur</t:eventlink>
+                    <t:eventlink class="btn btn-secondary" style="margin-left:10px" event="eventDidNotOccur">Did Not Occur</t:eventlink>
+                </p:actionsCell>
+            </t:grid>
+        </div>
+    </div>
+</div>
+
+</html>

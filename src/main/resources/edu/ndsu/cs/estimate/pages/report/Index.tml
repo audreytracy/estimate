@@ -1,0 +1,36 @@
+<html t:type="layout" title="Reports" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<div class="container" style="margin-left:20px">
+    <div class="card" style="width: 80rem; margin-top: 3rem;">
+        <div class="card-body">
+            <h3 style="display: flex; justify-content: space-between"><span>Your Reports: </span><t:actionlink class = "btn btn-success" t:id="generate" aria-expanded="false">Generate Report</t:actionlink>
+                <h3>You have ${numTotalReports} total Reports</h3>
+            </h3>
+            <div style="padding-right:10px" class="row">
+
+                <t:form t:id="dateForm">
+                    <t:label for="start" />
+                    <t:datefield t:id="start" />
+                    <t:label for="end" />
+                    <t:datefield t:id="end" />
+                    <t:submit value="Search" />
+                </t:form>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row" style="margin-top:2rem;">
+        <div class="col-3" style="padding:2rem;" t:type="loop" t:source="reports" t:value="report">
+            <div class="card" style="width:18rem; border-width:1rem;background-color: whitesmoke; box-shadow: 3px black;">
+                <div class="card-body" style="background-color: #ffffff;">
+                    <h4>Report ${pk(report.getPK())}</h4>
+                    <p>Generated ${formatDate(report.getDateGenerated())}</p>
+                    <t:pagelink class="btn btn-warning" page="report/ViewReport" context="report.pk">View Report</t:pagelink>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

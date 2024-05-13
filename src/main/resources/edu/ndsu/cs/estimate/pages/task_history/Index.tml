@@ -1,0 +1,38 @@
+<html t:type="layout" title="Task History" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+    
+<div class="container" style="color:black">
+
+    <h1 style = "color:black; margin:30px 0 5px 30px">Closed Tasks</h1>
+    <t:pagelink class="btn btn-secondary" style = "margin-left:30px" page="tasks">Back to Tasks</t:pagelink>
+
+    <div class="row" style="margin-top:2rem; margin-left:24px">
+        <t:if test="completedTasks"><h2>Completed Tasks</h2></t:if>
+        <div class="col-3" style="padding:1em; margin:1em" t:type="loop" t:source="completedTasks" t:value="task">
+            <div class="card" style="width:20rem; border-width:1rem;background-color: whitesmoke;">
+                <div class="card-body" style="background-color: #ffffff; color:black">
+                    <h4>${task.getName()}</h4>
+                    <h6>Start Date: ${task.getStartDate()}</h6>
+                    <h6>User Estimate: ${task.getEstimatedHours()} hours</h6>
+                    <h6>System Estimate: ${task.getSystemEstimate()} hours</h6>
+                    <h6>Hours Logged: ${task.getTimeTaken()} hours</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:2rem; margin-left:24px">
+        <t:if test="droppedTasks"><h2>Dropped Tasks</h2></t:if>
+        <div class="col-3" style="padding:1em; margin:1em" t:type="loop" t:source="droppedTasks" t:value="task">
+            <div class="card" style="width:20rem; border-width:1rem;background-color: whitesmoke;">
+                <div class="card-body" style="background-color: #ffffff; color:black">
+                    <h4>${task.getName()}</h4>
+                    <h6>Start Date: ${task.getStartDate()}</h6>
+                    <h6>User Estimate: ${task.getEstimatedHours()} hours</h6>
+                    <h6>System Estimate: ${task.getSystemEstimate()} hours</h6>
+                    <h6>Hours Logged: ${task.getTimeTaken()} hours</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

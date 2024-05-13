@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<head>
+    <meta charset="utf-8" />
+    <title>${title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="${asset:context:/favicon.ico}" />
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</link>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</link>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg");
+        min-height: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        color: #646b71;
+
+    }
+
+    /* img {
+        max-width: 40%;
+        height: auto;
+    } */
+
+    .navbar-custom {
+        margin: 0;
+        background-color: #222222;
+    }
+
+    li {
+        font-size: 20px;
+        color: #646b71;
+    }
+
+    li.nav-item {
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
+        text-align: center;
+        font-size: 20px;
+        color: #646b71;
+    }
+
+    .nav-item a {
+        text-decoration: none;
+        border-radius: 3px;
+        color: #646b71;
+        transition: background-color 0.3s;
+    }
+
+    .nav-item:hover a {
+        background-color: #080808;
+        color: #646b71;
+    }
+
+    @media (max-width: 768px) {
+        .navbar-nav {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .collapse-content {
+            flex-direction: row;
+        }
+    }
+
+    .collapse-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+</style>
+
+<body>
+    <div class="row">
+        <nav class="navbar navbar-expand-md navbar-light navbar-custom navbar-text container-fluid">
+            <div class="container-fluid" style="padding:0; margin:0">
+                <t:pagelink page="index" style="margin-top:-10px; padding:0; margin:0">
+                    <img style="padding:0; margin-left:10px" src="${asset:context:images/EstiMateLogo.png}"
+                        alt="EstiMate Logo" width="60"></img>
+                </t:pagelink>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="collapse-content ms-auto">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item" style="margin-right:20px">
+                                <t:pagelink style="font-size:17px" class="btn btn-large" page="index">Home
+                                </t:pagelink>
+                            </li>
+                            <t:security.authenticated>
+                                <li class="nav-item" style="margin-right:20px">
+                                    <t:pagelink page="tasks" style="font-size:17px" class="btn btn-large">Tasks
+                                    </t:pagelink>
+                                </li>
+                            </t:security.authenticated>
+                            <t:security.authenticated>
+                                <li class="nav-item" style="margin-right:20px">
+                                    <t:pagelink page="estimation" style="font-size:17px" class="btn btn-large">
+                                        Estimation Calibration
+                                    </t:pagelink>
+                                </li>
+                            </t:security.authenticated>
+                            <t:security.authenticated>
+                                <li class="nav-item" style="margin-right:20px">
+                                    <t:pagelink page="report" style="font-size:17px" class="btn btn-large">
+                                        Reports
+                                    </t:pagelink>
+                                </li>
+                            </t:security.authenticated>
+                        </ul>
+                        <t:security.notauthenticated>
+                            <li class="nav-item" style="margin-right:20px">
+                                <t:pagelink page="Login" class="btn btn-large" style="font-size:17px; color:white">
+                                    <i class="bi bi-box-arrow-in-right">
+                                        <span style="margin-left:5px;">Login</span>
+                                    </i>
+                                </t:pagelink>
+                            </li>
+                        </t:security.notauthenticated>
+                        <t:security.notauthenticated>
+                            <li class="nav-item" style="margin-right:20px">
+                                <t:pagelink page="CreateAccount" class="btn btn-large"
+                                    style="font-size:17px; color:white;">
+                                    <i class="bi bi-box-arrow-in-right">
+                                        <span style="margin-left:5px;">Create Account</span>
+                                    </i>
+                                </t:pagelink>
+                            </li>
+                        </t:security.notauthenticated>
+                        <t:security.authenticated>
+                            <li class="nav-item" style="margin-right:20px">
+                                <t:pagelink page="logout" class="btn btn-large" style="font-size:17px; color:white">
+                                    Log Out
+                                </t:pagelink>
+                            </li>
+                        </t:security.authenticated>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="span12">
+                <t:alerts />
+            </div>
+        </div>
+        <div class="row">
+            <t:body />
+        </div>
+    </div>
+</body>
+
+</html>

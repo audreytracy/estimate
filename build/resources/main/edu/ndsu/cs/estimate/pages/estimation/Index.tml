@@ -1,0 +1,24 @@
+<html t:type="layout" title="Estimation Calibration" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+    xmlns:p="tapestry:parameter">
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:80%; margin:20px 0 20px 0">
+        <div class="card-body">
+            <h1 class="card-title" style="color:rgb(23, 23, 23)">Estimation Calibration</h1>
+            <t:security.hasRole role="admin">
+                <t:pagelink page="estimation/ModeratorPage" class="btn btn-secondary navbar-btn">View Suggestions</t:pagelink>
+            </t:security.hasRole>
+
+            <t:grid class="table table-bordered table-striped" style="background-color: white;" source="categories"
+                row="category" include="name, description" add="actions">
+                <p:actionsCell>
+                    <t:pagelink class="btn btn-secondary" page="estimation/ViewExercises" context="category.pk"> View Exercises</t:pagelink>
+                    <t:pagelink style="margin-left:10px" class="btn btn-secondary" page="estimation/SuggestNewEvent" context="category.pk"> Suggest new event</t:pagelink>
+                </p:actionsCell>
+            </t:grid>
+
+        </div>
+    </div>
+</div>
+
+</html>

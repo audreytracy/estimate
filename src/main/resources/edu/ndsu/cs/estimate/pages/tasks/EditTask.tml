@@ -1,0 +1,24 @@
+<html t:type="layout" title="Edit Task" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="card" style="width:50%; margin:20px 0 20px 0; padding:20px;">
+
+        <h2 class="card-title" style="color:rgb(23, 23, 23)"> Edit Task </h2>
+
+        <t:if test="task">
+            <t:form t:id="taskForm">
+                <t:errors />
+                <t:label for="name" />
+                <t:textField t:id="name" value="task.name" class="card-subtitle text-muted" placeholder="task name"/>
+                <br />
+                <t:submit class = "btn btn-success" value="Edit Task" />
+                <t:pagelink page="tasks" class="btn btn-danger" style="margin-left:10px">Cancel</t:pagelink>
+            </t:form>
+        </t:if>
+        <t:if test="!task">
+            <h2>Task does not exist.</h2>
+        </t:if>
+    </div>
+</div>
+
+</html>

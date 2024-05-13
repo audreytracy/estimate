@@ -1,0 +1,103 @@
+<html t:type="layout" title="Tasks" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+
+<div class="container" style="margin-left:20px">
+    <div class="card"
+        style="width: 50%; margin-top: 3rem; padding: 10px 20px 10px 15px; border-radius:7px; box-shadow: 3px black;">
+        <div class="card-body">
+            <h3 style="display: flex; justify-content: space-between">Your Tasks: <t:pagelink
+                    class="btn btn-success float-right" page="tasks/AddTask">Create new Task</t:pagelink>
+            </h3>
+            <div class="row">
+                <t:form t:id="dateForm">
+                    <div class="form-group">
+                        <t:label for="start" />
+                        <t:datefield t:id="start" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <t:label for="end" />
+                        <t:datefield t:id="end" class="form-control" />
+                    </div>
+                    <t:submit value="Search" class="btn btn-primary" />
+                </t:form>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div>
+        <t:pagelink class="btn btn-warning" page="task_history">View Closed Tasks</t:pagelink>
+        <t:actionlink class="btn btn-secondary" style="margin-left:1em" t:id="demo">Generate Demo Tasks</t:actionlink>
+    </div>
+
+    <t:unless test="tasks">
+        <div class="d-flex align-items-center justify-content-center">
+            <p style="color:black; font-size:larger">No Tasks In Progress</p>
+        </div> 
+    </t:unless>
+
+    <div class="row" style="margin-top:2rem;">
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding:2rem;" t:type="loop" t:source="tasks" t:value="task">
+            <div class="card" style="width:22rem; border-width:1rem; box-shadow: 0 4px 8px 0 black;">
+                <div class="card-body" style="background-color: #ffffff;">
+                    <h4>${task.getName()}</h4>
+                    <p style="color:grey">Timestamp created: ${formatDateTime(task.getTimestampCreated())}</p>
+                    <h6>Start Date: ${formatDate(task.getStartDate())}</h6>
+                    <h6>Planned End Date: ${formatDate(task.getEstEndDate())}</h6>
+                    <h6>User Estimate: ${task.getEstimatedHours()} hours</h6>
+                    <h6>System Estimate: ${task.getSystemEstimate()} hours</h6>
+                    <h6>Hours Logged: ${task.getTimeTaken()}</h6>
+                    <h6>
+                        <t:pagelink class="btn btn-warning" page="taskHourLog" context="task.pk">Hour Log History
+                        </t:pagelink>
+                    </h6>
+                    <div class="row">
+                        <t:pagelink class="btn btn-primary" page="tasks/EditTask" context="task.pk">Edit Task
+                        </t:pagelink>
+                        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Log Hours
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <t:actionlink class="btn" t:id="add1" aria-expanded="false" context="task.PK">+1 hour
+                                </t:actionlink>
+                            </li>
+                            <li>
+                                <t:actionlink class="btn" t:id="add2" aria-expanded="false" context="task.PK">+2 hours
+                                </t:actionlink>
+                            </li>
+                            <li>
+                                <t:actionlink class="btn" t:id="add5" aria-expanded="false" context="task.PK">+5 hours
+                                </t:actionlink>
+                            </li>
+                            <li>
+                                <t:form t:id="addHourForm" context="task.PK"
+                                    style="display: flex; align-items: center; padding:0.5em;">
+                                    <t:textfield style="width:100%; margin-right: 3px;" min="0"
+                                        placeholder="custom hours" type="number" t:id="hours" />
+                                    <t:submit value="Add Hours" />
+                                </t:form>
+                            </li>
+                        </ul>
+                        <button class="btn btn-danger" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Close Task
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <t:actionlink t:id="complete" aria-expanded="false" context="task.PK"
+                                    style="font-size:small">End Task as
+                                    Completed</t:actionlink>
+                            </li>
+                            <li>
+                                <t:actionlink t:id="drop" aria-expanded="false" context="task.PK"
+                                    style="font-size:small">End Task as Dropped
+                                </t:actionlink>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
