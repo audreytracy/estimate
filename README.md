@@ -8,5 +8,5 @@ jetty:run
 ```
 
 
-collaborator credit Fall 2023: [Quinn Johnson](https://www.linkedin.com/in/quinn-johnson-gskjdhf/), [Michael Faust](https://www.linkedin.com/in/mike-faust-2a6824292/)
+collaborator credit Fall 2023: [Quinn Johnson](https://www.linkedin.com/in/quinn-johnson-gskjdhf/), [Michael Faust](https://www.linkedin.com/in/mike-faust-2a6824292/)  
 (copied from temporary class repo)
