@@ -48,8 +48,35 @@ This project is an extension of previous students' work. The intention of this p
 
 ### Features
 
+#### Account Creation & Login  
+
+*  Enforced password requirements
+*  Apache Shiro password authentication & user authorization
+
+![image](https://github.com/user-attachments/assets/4c1ec008-11a3-490e-a24f-496d2f5cca22)
 
 
+#### Tasks
+
+*  Log time spent on each task (increment buttons or custom)
+*  Edit (rename) tasks
+*  Close tasks - mark tasks dropped or completed
+*  View system estimation vs user estimation for in-progress tasks' total time
+    - System estimate is
+ 
+![Tasks](https://github.com/user-attachments/assets/33fb3795-c36d-4632-8d06-811e40cdf8e1)
+
+*  Add tasks
+  
+![image](https://github.com/user-attachments/assets/f4121069-c4c9-4326-8397-0d84d127fdf6)
+
+*  View hour log history for active tasks
+
+![image](https://github.com/user-attachments/assets/3ef6e21a-4f1e-41be-a254-05f4dd6741e1)
+
+*  View closed tasks
+
+  ![image](https://github.com/user-attachments/assets/3ce4f50f-9b6c-40ea-93f9-ae3b59a54a33)
 
 ## Setup
 
