@@ -78,6 +78,18 @@ This project is an extension of previous students' work. The intention of this p
 
   ![image](https://github.com/user-attachments/assets/3ce4f50f-9b6c-40ea-93f9-ae3b59a54a33)
 
+
+#### Reports
+
+![image](https://github.com/user-attachments/assets/7cd1a622-ab5d-43bb-8862-4bf8f7e1ab40)
+
+*  System estimation updates as new reports are generated & average ratio is recalculated
+
+![image](https://github.com/user-attachments/assets/0b04055b-00a3-4aa8-8975-06df812316e5)
+
+
+
+
 ## Setup
 
 ### Prerequisites
