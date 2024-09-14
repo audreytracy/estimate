@@ -61,7 +61,7 @@ For the full set of requirements, use cases, and database ERD, see [System Speci
 #### Account Creation & Login  
 
 *  Enforced password requirements
-*  Apache Shiro password authentication & user authorization
+*  Tynamo Security & Apache Shiro password authentication & user authorization
 
 ![image](https://github.com/user-attachments/assets/4c1ec008-11a3-490e-a24f-496d2f5cca22)
 
