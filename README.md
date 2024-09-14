@@ -15,6 +15,7 @@
       <a href="#overview">Overview</a>
       <ul>
         <li><a href="#purpose">Purpose</a></li>
+        <li><a href="#product-description">Product Description</a></li>
         <li><a href="#built-with">Built With</a></li>
         <li><a href="#features">Features</a></li>
       </ul>
@@ -24,7 +25,7 @@
         <li><a href="#purpose">Prereqs</a></li>
         <li><a href="#setup-steps">Setup Steps</a></li>
       </ul>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#database-design">Database Design</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributors">Contributors</a></li>
   </ol>
@@ -35,7 +36,15 @@
 
 ### Purpose
 
-This project is an extension of previous students' work. The intention of this project was to take buggy code with incomplete requirements, elicit a complete set of requirements, and expand functionality while troubleshooting & debugging existing codebase. 
+This project is an extension of previous students' work. The intention of this project was to take buggy code with incomplete requirements, elicit a complete set of requirements, and expand functionality while troubleshooting & debugging existing codebase. Many features initially listed in requirements were unimplemented or partially implemented. New requirements are bolded & underlined in [System Specification & Design](https://github.com/audreytracy/estimate/blob/bb76ed8b16c44138eeea10145819c8166ccc4216/System%20Specification%20and%20Design.pdf) document. 
+
+### Product Description
+
+The EstiMate Web Application will help users plan, record, and review the tasks they complete. A user will be able to log into the app, create and view tasks they plan on completing, and record and view the results.  
+
+The app will predict whether the user will complete the tasks within the user's predicted number of hours. The user will also have the opportunity to practice their estimation by entering a predicted likelihood (as a percentage) that certain real life events will occur. These events (estimation calibration exercises) may be suggested by any user and will be approved by system admins.  
+
+A user will be able to generate reports on their task activity. When a report is generated, the system calculates a ratio between predicted & actual time spent on all tasks to determine a user's average. This ratio is used in system predictions.   
 
 ### Built With
 
@@ -45,8 +54,9 @@ This project is an extension of previous students' work. The intention of this p
 * [![Jetty][Jetty]][Jetty-url]
 * [![Java][Java]][Java-url]
 
-
 ### Features
+
+For the full set of requirements, use cases, and database ERD, see [System Specification & Design](https://github.com/audreytracy/estimate/blob/bb76ed8b16c44138eeea10145819c8166ccc4216/System%20Specification%20and%20Design.pdf) document. Here are the main features of the EstiMate web application:
 
 #### Account Creation & Login  
 
@@ -62,7 +72,6 @@ This project is an extension of previous students' work. The intention of this p
 *  Edit (rename) tasks
 *  Close tasks - mark tasks dropped or completed
 *  View system estimation vs user estimation for in-progress tasks' total time
-    - System estimate is
  
 ![Tasks](https://github.com/user-attachments/assets/33fb3795-c36d-4632-8d06-811e40cdf8e1)
 
@@ -81,15 +90,21 @@ This project is an extension of previous students' work. The intention of this p
 
 #### Reports
 
+*  Generate & view reports
 ![image](https://github.com/user-attachments/assets/7cd1a622-ab5d-43bb-8862-4bf8f7e1ab40)
 
-*  System estimation updates as new reports are generated & average ratio is recalculated
+*  System estimation (listed on task page) updates as new reports are generated & average ratio is recalculated
 
 ![image](https://github.com/user-attachments/assets/0b04055b-00a3-4aa8-8975-06df812316e5)
 
 
 #### Estimation Calibration
 
+*  Suggest estimation exercises (reviewed by admins)
+    - Note: currently there is no way to create a new admin account from the web app itself. The admin login is JaneDoe pass1234
+*  View exercises
+*  Submit estimations
+  
 ![image](https://github.com/user-attachments/assets/40798df2-6baf-481d-885e-53d5dc1f660f)
 
 
@@ -104,9 +119,9 @@ Cayenne Modeler
 ### Setup Steps
 
 Clone this repository locally using 
-  ```sh
-  git clone https://github.com/audreytracy/android-pathfinding.git
-  ```
+```sh
+https://github.com/audreytracy/estimate.git
+```
 Run from Eclipse IDE  
 Run as Maven Build  
 Goals:
@@ -114,10 +129,20 @@ Goals:
 jetty:run
 ```
 
-## Usage
+## Database Design
+
+![download](https://github.com/user-attachments/assets/9fed2b61-1096-40b0-87f0-58d54ce1a23b)
 
 
 ## Roadmap
+
+Some features that would be useful to add in the future:  
+
+- [ ] "Remember Me" functionality using cookies
+- [ ] Ability to add additional admins from web app
+- [ ] Ability for admin to manage user accounts
+    - [ ] Ability to delete account
+- [ ] Ability to include estimation calibration exercise information in generated reports
 
 
 ## Contributors
