@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Sep 13 19:13:31 CDT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0191-ede0-b1ea-00000c954a00 
+on database directory memory:C:\Users\Audrey\Desktop\estimate\testdb with class loader WebAppClassLoader{Tapestry 5 Quickstart Project}@43ab0659 
+Loaded from file:/C:/Users/Audrey/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.8.1+1
+user.dir=C:\Users\Audrey\Desktop\estimate
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
